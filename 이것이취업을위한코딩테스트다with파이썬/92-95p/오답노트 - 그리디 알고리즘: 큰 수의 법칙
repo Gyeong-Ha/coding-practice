@@ -1,0 +1,29 @@
+# 오답노트 - 그리디 알고리즘: 큰 수의 법칙
+# m까지 도달하게 하면 변수를 추가로 써야 하고, m이 0에 도달하게 하면 변수를 추가할 필요가 없어진다.
+# while문에서 break로 끝나는 if문을 작성한 이후 if와 같은 수직선상(세로선)에 다른 코드를 작성하면 해당 코드가 else로써 쓰이게 된다.
+# 꼭 대문자로 할 필요가 없다.
+# 변수 이름은 이해하기 편하게
+# 리스트를 오름차순으로 정렬하고 [-1], [-2]를 활용해도 된다. 근데 난 내림차순이 편한듯
+# 코드 작성 전 그리디 알고리즘에 초점을 맞추고 접근방법을 확실하게 하면 코드 짜는 시간이 훨씬 줄었을 것이다.
+
+n, m, k = map(int, input().split())
+n_array = list(map(int, input().split()))
+
+n_array.sort(reverse=True)
+first = n_array[0]
+second = n_array[1]
+
+result = 0
+
+while True:
+    for i in range(k):
+        if m == 0:
+            break
+        m -= 1
+        result += first
+    if m == 0:
+        break
+    m -= 1
+    result += second
+
+print(result)
